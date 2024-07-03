@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click to Create Ring</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            overflow: hidden;
+            background-color: #0080ff;
+
+            text-align: center;
+        }
+
+        .ring {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid red;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>
+            Is web page par aap janha par bhi click kijiyega wanha par 1 second keliye circle banjayega .
+        </h1>
+        <h2>
+            इस वेब पेज पर आप जहाँ पर भी क्लिक करेंगे वहाँ पर 1 सेकंड के लिए सर्कल बन जाएगा।
+        </h2>
+        <h3>
+            এই ওয়েব পেজে আপনি যেখানে ক্লিক করবেন সেখানে ১ সেকেন্ডের জন্য একটি বৃত্ত তৈরি হবে।
+        </h3>
+    </div>
+
+
+    <script>
+        document.addEventListener('click', function(event) {
+            // Create a new div element for the ring
+            const ring = document.createElement('div');
+            ring.className = 'ring';
+
+            // Set the position of the ring to the click coordinates
+            ring.style.left = `${event.clientX}px`;
+            ring.style.top = `${event.clientY}px`;
+
+            // Append the ring to the body
+            document.body.appendChild(ring);
+
+            // Remove the ring after 1 second
+            setTimeout(() => {
+                ring.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
